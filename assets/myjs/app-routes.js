@@ -1,21 +1,26 @@
-define(function (require) {
-    var app = require('app');
-
-    app.run(['$state', '$stateParams', '$rootScope', function ($state, $stateParams, $rootScope) {
-        $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;
-    }]);
-
-    app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
-
+define(["angularAMD"],function (angularAMD) {
+    // routes
+    return {
+        angularAMD:angularAMD,
+        registerRoutes:function($stateProvider, $urlRouterProvider) {
+        // default
+        $urlRouterProvider.otherwise("/home");
+        // route
         $stateProvider
-            .state('index', {
-                url: '/',
-                templateUrl: 'view/index.html',
-                // new attribute for ajax load controller
-                controllerUrl: 'controller/index.js',
-                controller: 'index'
-            });
-    }]);
+            // home
+            .state("home", angularAMD.route({
+                url: "/home",
+                templateUrl: "home.html",
+                controller: "Home",
+                controllerUrl: "controllers/home"
+            }))
+
+            // home
+            .state("about", angularAMD.route({
+                url: "/about",
+                templateUrl: "about.html",
+                controller: "About",
+                controllerUrl: "controllers/about"
+            }));
+    }};
 });
