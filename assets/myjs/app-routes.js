@@ -10,7 +10,7 @@ define(["angularAMD"],function (angularAMD) {
             // home
             .state("home", angularAMD.route({
                 url: "/home",
-                templateUrl: "home.html",
+                templateUrl: "views/home.html",
                 controller: "Home",
                 controllerUrl: "controllers/home"
             }))
@@ -18,7 +18,7 @@ define(["angularAMD"],function (angularAMD) {
             // home
             .state("about", angularAMD.route({
                 url: "/about",
-                templateUrl: "about.html",
+                templateUrl: "views/about.html",
                 controller: "About",
                 controllerUrl: "controllers/about"
             }));
